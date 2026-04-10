@@ -2,8 +2,9 @@
 <html lang="et">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mr.Lill pole Jaani kirjadele vastanud</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Server on suletud</title>
+
   <style>
     * {
       margin: 0;
@@ -11,20 +12,15 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      width: 100%;
-      height: 100%;
-      font-family: Inter, Arial, sans-serif;
-      overflow: hidden;
-      color: #fff;
-    }
-
     body {
-      position: relative;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-family: Inter, Arial, sans-serif;
+      color: #fff;
       background: #000;
+      overflow: hidden;
     }
 
     .background {
@@ -33,154 +29,146 @@
       background-image: url('https://preview.redd.it/some-fivem-gta-v-screenshots-upscaled-with-ai-v0-w1pkf9k71vxc1.png?width=1080&crop=smart&auto=webp&s=d8b046abe61e42c2e71b8855c3b2ee53c96ff586');
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
-      transform: scale(1.05);
-    }
-
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(2px);
+      filter: blur(4px) brightness(0.6);
+      transform: scale(1.1);
     }
 
     .content {
       position: relative;
       z-index: 2;
       text-align: center;
-      padding: 32px;
-      max-width: 1100px;
+      max-width: 900px;
+      padding: 30px;
     }
 
     h1 {
-      font-size: clamp(2.2rem, 5vw, 5rem);
-      line-height: 1.05;
+      font-size: clamp(2.5rem, 6vw, 5rem);
       font-weight: 900;
-      letter-spacing: -0.04em;
-      text-shadow: 0 8px 30px rgba(0,0,0,0.45);
-      margin-bottom: 18px;
-    }
-
-    .sub {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      color: rgba(255,255,255,0.84);
-      margin-bottom: 34px;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    }
-
-    .timer {
-      display: inline-grid;
-      grid-template-columns: repeat(4, minmax(120px, 1fr));
-      gap: 16px;
-      width: 100%;
-      max-width: 760px;
-    }
-
-    .time-box {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.18);
-      backdrop-filter: blur(10px);
-      border-radius: 22px;
-      padding: 22px 14px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.28);
-    }
-
-    .time-value {
-      display: block;
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      font-weight: 900;
-      line-height: 1;
-      margin-bottom: 10px;
-    }
-
-    .time-label {
-      display: block;
-      font-size: 0.95rem;
+      margin-bottom: 20px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: rgba(255,255,255,0.72);
     }
 
-    .since {
-      margin-top: 24px;
-      color: rgba(255,255,255,0.7);
+    .text {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      margin-bottom: 15px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .days {
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .recommend {
+      margin-top: 40px;
+      padding: 25px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .recommend h2 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 15px;
+    }
+
+    .recommend p {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .owner-note {
       font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 20px;
     }
 
-    @media (max-width: 700px) {
-      .timer {
-        grid-template-columns: repeat(2, minmax(120px, 1fr));
-      }
+    .wknd-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 22px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      transition: 0.25s;
     }
 
-    @media (max-width: 460px) {
-      .timer {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
+    .wknd-btn img {
+      width: 28px;
+      height: 28px;
+    }
 
-      .content {
-        padding: 20px;
-      }
+    .wknd-btn:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.2);
+    }
 
-      .time-box {
-        padding: 18px 10px;
-        border-radius: 18px;
-      }
+    .link {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
     }
   </style>
 </head>
+
 <body>
+
   <div class="background"></div>
-  <div class="overlay"></div>
 
-  <main class="content">
-    <h1>Mr.Lill pole Jaani kirjadele vastanud</h1>
+  <div class="content">
+    <h1>SERVER ON SULETUD</h1>
 
-    <section class="timer">
-      <div class="time-box">
-        <span class="time-value" id="days">0</span>
-        <span class="time-label">Päeva</span>
-      </div>
-      <div class="time-box">
-        <span class="time-value" id="hours">0</span>
-        <span class="time-label">Tundi</span>
-      </div>
-      <div class="time-box">
-        <span class="time-value" id="minutes">0</span>
-        <span class="time-label">Minutit</span>
-      </div>
-      <div class="time-box">
-        <span class="time-value" id="seconds">0</span>
-        <span class="time-label">Sekundit</span>
-      </div>
-    </section>
+    <p class="text">
+      Kuna mr.lill pole minu kirjadele vastanud juba viimased 
+      <span class="days" id="days">0</span> päeva,
+      siis olen otsustanud serveri sulgeda.
+    </p>
 
-  </main>
+    <p class="text" style="opacity: 0.7;">
+      See on <span class="days" id="days2">0</span> päeva vastuseta.
+    </p>
+
+    <div class="recommend">
+      <h2>Soovitatud rollimängu server</h2>
+
+      <p>
+        Jaanmangib soovitab isiklikult <b>WKND RP</b> serverit.
+      </p>
+
+      <a href="https://wkndrp.ee" target="_blank" class="wknd-btn">
+        <img src="https://wkndrp.ee/assets/wknd_logo.png">
+        WKNDRP Kodulehekülg
+      </a>
+    </div>
+  </div>
 
   <script>
     const startDate = new Date('2026-02-24T00:11:15');
 
-    function updateTimer() {
+    function updateDays() {
       const now = new Date();
       let diff = now - startDate;
-
       if (diff < 0) diff = 0;
 
-      const totalSeconds = Math.floor(diff / 1000);
-      const days = Math.floor(totalSeconds / 86400);
-      const hours = Math.floor((totalSeconds % 86400) / 3600);
-      const minutes = Math.floor((totalSeconds % 3600) / 60);
-      const seconds = totalSeconds % 60;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
       document.getElementById('days').textContent = days;
-      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+      document.getElementById('days2').textContent = days;
     }
 
-    updateTimer();
-    setInterval(updateTimer, 1000);
+    updateDays();
+    setInterval(updateDays, 60000);
   </script>
+
 </body>
 </html>
